@@ -2,6 +2,8 @@ import * as THREE from './three/src/Three.js';
 import {Scene} from './three/src/scenes/Scene.js'
 import {PerspectiveCamera} from './three/src/cameras/PerspectiveCamera.js'
 import {WebGLRenderer} from './three/src/renderers/WebGLRenderer.js'
+import {TrackballControls} from 'https://cdn.skypack.dev/three@0.131.2/examples/jsm/controls/TrackballControls.js'
+
 
 // Criar a cena
 const scene = new THREE.Scene();
