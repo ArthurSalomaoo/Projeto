@@ -1,14 +1,23 @@
+import * as THREE from './three/src/Three.js';
+import {Scene} from './three/src/scenes/Scene.js'
+import {PerspectiveCamera} from './three/src/cameras/PerspectiveCamera.js'
+import {WebGLRenderer} from './three/src/renderers/WebGLRenderer.js'
+
 // Criar a cena
 const scene = new THREE.Scene();
 
 // Criar a câmera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
+    
 // Criar o renderizador
 const renderer = new THREE.WebGLRenderer();
 renderer.setClearColor(0x778899, 1);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+renderer.render(scene, camera);
+
+const controls = new THREE.TrackballControls(camera, renderer.domElement);
 
 //Linhas xyz
 let linhas = new THREE.AxisHelper(20);
@@ -71,5 +80,12 @@ scene.add(sala3);
 camera.position.z = 5;
 camera.position.x = 0;
 camera.position.y = 0.9;
+
+function animate() {
+          requestAnimationFrame(animate);
+          controls.update();
+          renderer.render(scene, camera);
+        }
+        animate();
 
 renderer.render(scene, camera);
