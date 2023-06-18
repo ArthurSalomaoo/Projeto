@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import * as THREE from '../three/build/three.module.js'
 import {Scene} from '../three/src/scenes/Scene.js'
 import {PerspectiveCamera} from '../three/src/cameras/PerspectiveCamera.js'
@@ -27,48 +26,18 @@ flyControls.domElement = renderer.domElement
 flyControls.autoForward = false
 flyControls.dragToLook = true
 
-=======
-import * as THREE from './three/src/Three.js'
-import {Scene} from './three/src/scenes/Scene.js'
-import {PerspectiveCamera} from './three/src/cameras/PerspectiveCamera.js'
-import {WebGLRenderer} from './three/src/renderers/WebGLRenderer.js'
-import {AxesHelper} from './three/src/helpers/AxesHelper.js'
-import {TrackballControls} from 'https://cdn.skypack.dev/three@0.131.2/examples/jsm/controls/TrackballControls.js'
-
-// Criar a cena
-const scene = new THREE.Scene();
-
-// Criar a câmera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    
-// Criar o renderizador
-const renderer = new THREE.WebGLRenderer();
-renderer.setClearColor(0x778899, 1);
-renderer.setSize(window.innerWidth, window.innerHeight);
->>>>>>> a70fa83dc0483a71b0741654fec043dcc1ca3466
 document.body.appendChild(renderer.domElement);
-
-
-const controls = new TrackballControls(camera, renderer.domElement);
 
 //Linhas xyz
 let linhas = new THREE.AxesHelper(20);
 scene.add(linhas);
 
 //Chão
-<<<<<<< HEAD
 const geometry = new THREE.PlaneGeometry(9, 3)
 const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }) // Cor verde
 const rectangle = new THREE.Mesh(geometry, material)
 rectangle.rotation.x = -1.6
 scene.add(rectangle)
-=======
-const geometry = new THREE.PlaneGeometry(9, 3);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // Cor verde
-const rectangle = new THREE.Mesh(geometry, material);
-rectangle.rotation.x = -1.6;
-scene.add(rectangle);
->>>>>>> a70fa83dc0483a71b0741654fec043dcc1ca3466
 
 //banheiro masculino
 let banheiroMasculino1Profundidade = 0.78;
@@ -114,7 +83,6 @@ sala3.rotation.x -= 0;
 sala3.position.set(-3, 0.3, 1)
 scene.add(sala3);
 
-<<<<<<< HEAD
 /*
 controls.rotateSpeed = 3; // Ajuste o valor para aumentar a velocidade de rotação
 function animate() {
@@ -123,23 +91,6 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();*/
-=======
-// Posicionando a câmera
-camera.position.z = 5;
-camera.position.x = 0;
-camera.position.y = 0;
-
-controls.rotateSpeed = 3; // Ajuste o valor para aumentar a velocidade de rotação
-function animate() {
-    requestAnimationFrame(animate);
-    
-    controls.update();
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  renderer.render(scene, camera);
->>>>>>> a70fa83dc0483a71b0741654fec043dcc1ca3466
 
 function animate() {
   requestAnimationFrame(animate);
