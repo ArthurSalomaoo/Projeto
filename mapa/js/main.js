@@ -6,6 +6,15 @@ import {AxesHelper} from '../three/src/helpers/AxesHelper.js'
 import {TrackballControls} from 'https://cdn.skypack.dev/three@0.131.2/examples/jsm/controls/TrackballControls.js'
 import { FlyControls } from 'https://cdn.skypack.dev/three@0.131.2/examples/jsm/controls/FlyControls.js';
 
+function criarSala(altura, largura, profundidade, cor) {
+  const salaTamanho = new THREE.BoxGeometry(altura, largura, profundidade);
+  const salaCor = new THREE.MeshBasicMaterial({ color: cor });
+  const sala = new THREE.Mesh(sala1Tamanho, sala1Material);
+  sala1.rotation.x -= 0;
+  sala1.position.set(2.1, -0.01, 1.97)
+  scene.add(sala1);
+}
+
 
 const scene = new THREE.Scene();
 
@@ -50,16 +59,8 @@ banheiroMasculino1.rotation.x -= 0;
 banheiroMasculino1.position.set(0, 0, 0)
 scene.add(banheiroMasculino1);
 
-//Sala1
-let sala1Profundidade = 0.78;
-let sala1Largura = 2.5;
-let sala1Altura = 0.4;
-const sala1Tamanho = new THREE.BoxGeometry(sala1Largura, sala1Profundidade, sala1Altura);
-const sala1Material = new THREE.MeshBasicMaterial({ color: 0x9973FB });
-const sala1 = new THREE.Mesh(sala1Tamanho, sala1Material);
-sala1.rotation.x -= 0;
-sala1.position.set(2.1, -0.01, 1.97)
-scene.add(sala1);
+
+
 
 //Sala2
 let sala2Profundidade = 0.78;
@@ -82,15 +83,6 @@ const sala3 = new THREE.Mesh(sala3Tamanho, sala3Material);
 sala3.rotation.x -= 0;
 sala3.position.set(-3, 0.3, 1)
 scene.add(sala3);
-
-/*
-controls.rotateSpeed = 3; // Ajuste o valor para aumentar a velocidade de rotação
-function animate() {
-    requestAnimationFrame(animate);
-    controls.update();
-    renderer.render(scene, camera);
-}
-animate();*/
 
 function animate() {
   requestAnimationFrame(animate);
