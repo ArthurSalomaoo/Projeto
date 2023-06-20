@@ -4,7 +4,6 @@ import {PerspectiveCamera} from '../three/src/cameras/PerspectiveCamera.js'
 import {WebGLRenderer} from '../three/src/renderers/WebGLRenderer.js'
 import {AxesHelper} from '../three/src/helpers/AxesHelper.js'
 import {TrackballControls} from 'https://cdn.skypack.dev/three@0.131.2/examples/jsm/controls/TrackballControls.js'
-import { FlyControls } from 'https://cdn.skypack.dev/three@0.131.2/examples/jsm/controls/FlyControls.js';
 
 function criarSala(altura, largura, comprimento, cor, locX, locY, locZ) {
   //Função para criar uma sala
@@ -22,18 +21,14 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 camera.position.x = 1
 camera.position.y = 1
 camera.position.z = 5
-camera.lookAt(new THREE.Vector3(0, 0, 0))
 
 const renderer = new THREE.WebGLRenderer()
 renderer.setClearColor(0x778899, 1)
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
-const flyControls = new FlyControls(camera, renderer.domElement)
-flyControls.movementSpeed = 0.1
-flyControls.domElement = renderer.domElement
-flyControls.autoForward = false
-flyControls.dragToLook = true
+const controls = new TrackballControls(camera, renderer.domElement);
+
 
 document.body.appendChild(renderer.domElement);
 
@@ -86,10 +81,7 @@ criarSala(2.5, 0.5, 1, 0x5584FF, 1, 0.3, 1)
 
 function animate() {
   requestAnimationFrame(animate);
-
-  flyControls.update(1);
-
+  controls.update();
   renderer.render(scene, camera);
 }
-
 animate()
